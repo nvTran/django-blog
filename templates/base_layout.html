@@ -1,0 +1,173 @@
+{% load static from staticfiles%}
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Homepage</title>
+	<link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+	<link href="https://fonts.googleapis.com/css2?family=Noto+Serif&family=Open+Sans&display=swap" rel="stylesheet">
+	<script src="https://kit.fontawesome.com/129e7cf8b7.js" crossorigin="anonymous"></script>
+	<link rel="stylesheet" type="text/css" href="{% static 'newIndex.css'%}">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+	<section class="section-header">
+		<header class="container page-header">
+			<div class="row">
+				<div class="col-md-5 page-header-navbar">
+					<nav class="navbar">
+						<div class="dropdown">
+							<a href="#">Home<i class="fas fa-angle-down"></i></a>
+							<div class="dropdown-content">
+								<a href="#">Go here</a>
+								<a href="#">Go there</a>
+								<a href="#">Go everywhere</a>
+							</div>
+						</div>
+						<a href="#">About Me</a>
+						<a href="#">Categories</a>
+						<a href="#">Buy me a coffee</a>
+					</nav>
+				</div>
+				<div class="col-md-2 page-header-logo">
+					<h1>NVTA</h1>
+				</div>
+				<div class="col-md-5 page-header-util">
+					<nav class="navbar navbar2">
+						<a href="#"><i class="fab fa-facebook-f"></i></a>
+						<a href="#"><i class="fab fa-twitter"></i></a>
+						<a href="#"><i class="fab fa-github"></i></a>
+						<a href="#"><i class="fab fa-instagram"></i></a>
+					</nav>
+					<form class="searchform">
+						<input type="text" name="search" placeholder="Search...">
+					</form>
+				</div>
+			</div>
+		</header>
+	</section>
+	{% block content%}
+			{% endblock %}
+	<!-- <section class="section-body">
+		<div class="container-fluid page-body">
+			
+
+			<div class="row">
+				<div class="col-md-1 page-body-fixedbar"></div>
+				<div class="col-md-6 page-body-article">
+					<div class="article-group">
+						<div class="article-group-2">
+							<div class="row">
+								<div class="col-md-6">
+									
+								</div>
+								<div class="col-md-6">
+									
+								</div>
+							</div>
+						</div>
+						<div class="article-group-1">
+							
+						</div>
+					</div>
+					
+				</div>
+				<div class="col-md-4 page-body-util"></div>
+				<div class="col-md-1"></div>
+			</div>
+	
+		</div>
+	</section> -->
+	<section class="section-footer">
+		<div class="page-footer-call container">
+			<div class="call-wrapper">
+				
+				<h1><b style="color: red">#</b> <b>nvta</b></h1>
+				
+			</div>
+		</div>
+		<div class="page-footer-util container">
+			<div class="util-wrapper">
+				<div class="row">
+					<div class="col-md-5">
+						<div class="footer-util__logo-wrapper" style="margin-top: 20%">
+							<h1>NVTA</h1>
+							<p>NVTA is the place for you to find out more about the trending technology globally</p>
+						</div>
+					</div>
+					<div class="col-md-2">
+						<div class="footer-util__logo-wrapper">
+							<h2 class="wrapper-title">Get in touch</h2>
+							<div class="wrapper-links">
+								<ul class="link-list xs-get-intach">
+									<li>
+										<a href="#">#16-1177 Block 156 Toa Payoh, 310156</a>
+									</li>
+									<li>
+										<a href="#">123456789</a>
+									</li>
+									<li>
+										<a href="#">nvta@nvta.com</a>
+									</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+					<div class="col-md-2">
+						<div class="footer-util__logo-wrapper">
+							<h2 class="wrapper-title">Useful links</h2>
+							<div class="wrapper-links">
+								<ul class="link-list xs-get-intach">
+									<li>
+										<a href="#">Home</a>
+									</li>
+									<li>
+										<a href="#">About</a>
+									</li>
+									<li>
+										<a href="#">Contact</a>
+									</li>
+									<li>
+										<a href="#">Archive</a>
+									</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+					<div class="col-md-2">
+						<div class="footer-util__logo-wrapper">
+							<h2 class="wrapper-title">Social</h2>
+							<div class="wrapper-links">
+								<ul class="link-list xs-get-intach">
+									<li>
+										<a href="#"><i class="fab fa-facebook-f"></i> Facebook</a>
+									</li>
+									<li>
+										<a href="#"><i class="fab fa-twitter"></i> Twitter</a>
+									</li>
+									<li>
+										<a href="#"><i class="fab fa-github"></i> Github</a>
+									</li>
+									<li>
+										<a href="#"><i class="fab fa-instagram"></i> Instagram</a>
+									</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+					<div class="col-md-1">
+						<div class="gotop">
+							<p>Go top <i class="fas fa-long-arrow-alt-right"></i></p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<footer class="page-footer-copyright">
+			<div class="copyright-wrapper">
+				<h1>NVTA</h1>
+			</div>
+		</footer>
+	</section>
+</body>
+</html>

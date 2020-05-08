@@ -1,0 +1,31 @@
+{% extends 'base_layout.html' %}
+
+{% block content%}
+<div class = "article-detail">
+    <section class="section-body container">
+        <img src="{{ article.thumb.url }}"/>
+        <h3>{{ article.title}}</h3>
+        <p>{{ article.body}}</p>
+        <p>{{ article.date}}</p>
+        <div>
+            <h5>Tags:</h5>
+            {% for tag in tags %}
+					<span class="badge badge-light"><a href="tag/{{ tag }}">{{tag }} </a></span>
+            {% endfor %}
+        </div>
+        
+
+        <div id="fb-root"></div>
+    <script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v6.0"></script>
+    <div class="fb-comments" data-href="{{request.build_absolute_uri }}" data-numposts="5" data-width=""></div>
+        <div>
+            <h5>Similar articles</h5>
+            {% for article in related_articles %}
+					<h2><a href="/articles/{{article.slug }}">{{article.title }}</a></h2>
+			{% endfor %}
+        </div>
+    </section>
+    
+
+    </div>
+{% endblock%}
