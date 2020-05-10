@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from .models import Article
+from .models import Article, Category
 from django.shortcuts import render, get_object_or_404
 from django.http import HttpResponse
 # from django.views.generic import ListView
@@ -52,3 +52,30 @@ def article_details(request, slug):
     related_articles = Article.simiar(article)
 
     return render(request,'articles/article_detail.html', {'article': article, 'tags': tags, 'related_articles': related_articles})
+
+def category_list(request):
+    categories = Category.objects.all() # this will get all categories, you can do some filtering if you need (e.g. excluding categories without posts in it)
+    
+    return render (request, 'articles/categories_list.html', {'categories': categories}) 
+
+def category_detail(request, slug):
+    selected_category = Category.objects.get(slug = slug)
+    category_title = selected_category.title
+    articles = Article.objects.filter(category__slug__exact = slug)
+
+    return render(request, 'articles/category_detail.html', {'category': selected_category.title, 'articles': articles}) 
+
+def homepage(request):
+    articles = Article.objects.all().order_by("date")
+    paginator = Paginator(articles, 10)
+    page = request.GET.get('page')
+    try:
+        articles = paginator.page(page)
+    except PageNotAnInteger:
+            # If page is not an integer deliver the first page
+        articles = paginator.page(1)
+    except EmptyPage:
+        # If page is out of range deliver last page of results
+        articles = paginator.page(paginator.num_pages)
+
+    return render(request, "articles/homepage.html", {'page': page,'articles': articles})

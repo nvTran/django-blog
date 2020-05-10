@@ -1,0 +1,12 @@
+{% extends 'base_layout.html'%}
+
+{% block content%}
+	<section class="section-body container">
+		<div class = "category">
+			{% for cat in categories %}
+					<h2><a href='/categories/{{cat.slug}}'>{{cat.title }}</a></h2>
+
+			{% endfor %}
+		</div>
+	</section> 
+{% endblock%}

@@ -5,7 +5,7 @@
     <section class="section-body container">
         <img src="{{ article.thumb.url }}"/>
         <h3>{{ article.title}}</h3>
-        <p>{{ article.body}}</p>
+        <div>{{ article.body| safe}}</div>
         <p>{{ article.date}}</p>
         <div>
             <h5>Tags:</h5>

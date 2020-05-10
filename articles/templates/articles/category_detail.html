@@ -1,0 +1,32 @@
+{% extends 'base_layout.html'%}
+
+{% block content%}
+
+</div>
+<section class="section-body container">
+    <div class = "articles">
+        <h3> All articles under category: {{ category }}</h3>
+        {% for article in articles %}
+            <div class="article">
+                <h2><a href="/articles/{{article.slug }}">{{article.title }}</a></h2>
+
+                <p>{{ article.snippet }}</p>
+                    <p>{{ article.date }}</p>
+            </div>
+        {% endfor %}
+    </div>
+</section>
+{% if articles.has_other_pages %}
+<nav aria-label="Page navigation conatiner"></nav>
+<ul class="pagination justify-content-center">
+{% if articles.has_previous %}
+<li><a href="?page={{ articles.previous_page_number }}" class="page-link">&laquo; PREV </a></li>
+{% endif %}
+{% if articles.has_next %}
+<li><a href="?page={{ articles.next_page_number }}" class="page-link"> NEXT &raquo;</a></li>
+{% endif %}
+</ul>
+</nav>
+</div>
+{% endif %}
+{% endblock%}

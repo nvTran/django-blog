@@ -1,13 +1,6 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<title>Homepage</title>
-	<link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
-	<link href="https://fonts.googleapis.com/css2?family=Noto+Serif&family=Open+Sans&display=swap" rel="stylesheet">
-	<script src="https://kit.fontawesome.com/129e7cf8b7.js" crossorigin="anonymous"></script>
-	<link rel="stylesheet" type="text/css" href="newIndex.css">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-</head>
+{% extends 'base_layout.html' %}
+{% block content%}
+
 <body>
 	<section class="section-body">
 		<div class="container page-body">
@@ -181,4 +174,32 @@
 		</div>
 	</section>
 </body>
-</html>
+</div>
+<section class="section-body container">
+	<div class = "articles">
+		{% for article in articles %}
+			<div class="article">
+				<!-- <h2><a href="{% url 'detail' slug=article.slug %}">{{article.title }}</a></h2> -->
+				<h2><a href="/articles/{{article.slug }}">{{article.title }}</a></h2>
+
+				<p>{{ article.snippet }}</p>
+					<p>{{ article.date }}</p>
+			</div>
+		{% endfor %}
+	</div>
+</section>
+		{% if articles.has_other_pages %}
+	<nav aria-label="Page navigation container"></nav>
+		<ul class="pagination justify-content-center">
+			{% if articles.has_previous %}
+				<li><a href="?page={{ articles.previous_page_number }}" class="page-link">&laquo; PREV </a></li>
+		{% endif %}
+		{% if articles.has_next %}
+	<li><a href="?page={{ articles.next_page_number }}" class="page-link"> NEXT &raquo;</a></li>
+		{% endif %}
+	</ul>
+	</nav>
+	</div>
+	{% endif %}
+
+{% endblock%}
