@@ -1,7 +1,8 @@
 from django.db import models
 from taggit.managers import TaggableManager
 from django.utils.text import slugify
-
+from hitcount.models import HitCountMixin, HitCount
+from django.contrib.contenttypes.fields import GenericRelation
 
 # Create your models here.
 
@@ -37,7 +38,7 @@ class Article(models.Model):
     thumb = models.ImageField(default='default.jpg', blank=True)
     category = models.ForeignKey(Category, null=True, blank=True, on_delete= models.SET_NULL)
     tags = TaggableManager()
-    # add in author later
+    hit_count_generic = GenericRelation(HitCount, object_id_field='object_pk',related_query_name='hit_count_generic_relation')
 
     def __str__(self):
         return self.title

@@ -4,6 +4,9 @@ from django.shortcuts import render
 
 
 def about(request):
-    # return HttpResponse("This is the about page")
     return render(request, "about.html")
+
+
+def donate(request):
+    return render(request, "donate.html")
 

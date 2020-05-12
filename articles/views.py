@@ -4,6 +4,13 @@ from django.shortcuts import render, get_object_or_404
 from django.http import HttpResponse
 # from django.views.generic import ListView
 from django.core.paginator import Paginator, PageNotAnInteger, EmptyPage
+from taggit.models import Tag
+
+from hitcount.views import HitCountDetailView
+
+class PostCountHitDetailView(HitCountDetailView):
+    model = Article        # your model goes here
+    count_hit = True    # set to True if you want it to try and count the hit
 
 
 def article_list(request):
@@ -67,6 +74,8 @@ def category_detail(request, slug):
 
 def homepage(request):
     articles = Article.objects.all().order_by("date")
+    tags = Tag.objects.all()
+    categories = Category.objects.all()
     paginator = Paginator(articles, 10)
     page = request.GET.get('page')
     try:
@@ -78,4 +87,7 @@ def homepage(request):
         # If page is out of range deliver last page of results
         articles = paginator.page(paginator.num_pages)
 
-    return render(request, "articles/homepage.html", {'page': page,'articles': articles})
+    top_articles = Article.objects.order_by("hit_count_generic__hits")
+
+
+    return render(request, "articles/homepage.html", {'page': page,'articles': articles, 'tags': tags, 'categories': categories, 'top_articles': top_articles[0:5]})
