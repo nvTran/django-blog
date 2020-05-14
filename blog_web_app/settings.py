@@ -37,11 +37,13 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'haystack',
     'articles',
     'taggit',
     'django_summernote',
     'elasticsearch',
-    'hitcount'
+    'hitcount',
+    
 ]
 
 MIDDLEWARE = [
@@ -135,7 +137,10 @@ MEDIA_ROOT = os.path.join(BASE_DIR,'media')
 HAYSTACK_CONNECTIONS = {
     'default': {
         'ENGINE': 'haystack.backends.elasticsearch5_backend.Elasticsearch5SearchEngine',
-        'URL': 'http://127.0.0.1:8000/',
+        'URL': 'http://127.0.0.1:9200/',
         'INDEX_NAME': 'haystack',
     },
 }
+
+
+

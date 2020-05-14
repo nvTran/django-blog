@@ -73,7 +73,7 @@ def category_detail(request, slug):
     return render(request, 'articles/category_detail.html', {'category': selected_category.title, 'articles': articles}) 
 
 def homepage(request):
-    articles = Article.objects.all().order_by("date")
+    articles = Article.objects.all().order_by("-date")
     tags = Tag.objects.all()
     categories = Category.objects.all()
     paginator = Paginator(articles, 10)
@@ -87,7 +87,7 @@ def homepage(request):
         # If page is out of range deliver last page of results
         articles = paginator.page(paginator.num_pages)
 
-    top_articles = Article.objects.order_by("hit_count_generic__hits")
+    top_articles = Article.objects.order_by("-hit_count_generic__hits")
 
 
     return render(request, "articles/homepage.html", {'page': page,'articles': articles, 'tags': tags, 'categories': categories, 'top_articles': top_articles[0:5]})
