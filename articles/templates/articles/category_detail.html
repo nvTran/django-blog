@@ -2,31 +2,59 @@
 
 {% block content%}
 
-</div>
-<section class="section-body container">
-    <div class = "articles">
-        <h3> All articles under category: {{ category }}</h3>
-        {% for article in articles %}
-            <div class="article">
-                <h2><a href="/articles/{{article.slug }}">{{article.title }}</a></h2>
-
-                <p>{{ article.snippet }}</p>
-                    <p>{{ article.date }}</p>
+<section class="section-body">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-10 mx-auto">
+                <div class="row">
+                    {% for article in articles %}
+                        <div class="cat-post-wrapper col-lg-12">
+                            <article class="post post-list">
+                                <div class="post-content">
+                                    <div class="entry-header">
+                                        <h2>
+                                            <a href="/articles/{{article.slug }}">{{ article.title }}</a>
+                                        </h2>
+                                        <div class="post-meta">
+                                            <span class="meta-category">
+                                                <i class="fas fa-layer-group"></i><a href="#" rel="category tag">{{article.category}}</a>
+                                            </span>
+                                            <span class="meta-date">
+                                                <i class="fas fa-calendar-alt"></i>{{ article.date }}
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="blog-img">
+                                    <a href="/articles/{{ article.slug }}">
+                                        <img src="media/{{ article.thumb}}">
+                                    </a>
+                                </div>
+                                <div class="entry-content">
+                                    <p>{{ article.snippet}}</p>
+                                    <div class="post-separator">
+                                        <img src="https://demo.wpmet.com/gutentim/v2/wp-content/themes/gutentim/assets/img/wave.png">
+                                    </div>
+                                </div>
+                            </article>
+                        </div>
+                    {% endfor %}
+                </div>
+                {% if articles.has_other_pages %}
+                    <nav aria-label="Page navigation conatiner">
+                        <ul class="pagination justify-content-center">
+                            {% if articles.has_previous %}
+                                <li><a href="?page={{ articles.previous_page_number }}" class="page-link">&laquo; PREV </a></li>
+                            {% endif %}
+                            {% if articles.has_next %}
+                                <li><a href="?page={{ articles.next_page_number }}" class="page-link"> NEXT &raquo;</a></li>
+                            {% endif %}
+                        </ul>
+                    </nav>
+                {% endif %}
             </div>
-        {% endfor %}
+        </div>
     </div>
 </section>
-{% if articles.has_other_pages %}
-<nav aria-label="Page navigation conatiner"></nav>
-<ul class="pagination justify-content-center">
-{% if articles.has_previous %}
-<li><a href="?page={{ articles.previous_page_number }}" class="page-link">&laquo; PREV </a></li>
-{% endif %}
-{% if articles.has_next %}
-<li><a href="?page={{ articles.next_page_number }}" class="page-link"> NEXT &raquo;</a></li>
-{% endif %}
-</ul>
-</nav>
-</div>
-{% endif %}
+  
 {% endblock%}
