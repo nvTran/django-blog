@@ -34,4 +34,4 @@ build:
 staging:
   stage: deploy
   script:
-    - docker run -p 8000:8000 -i -t dvblog
+    - docker run -p 8000:8000 -i -t gitlab.com/dangvu1986/dvblog:latest
