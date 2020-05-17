@@ -38,7 +38,8 @@ a:hover{
 }
 .page-header-logo h1{
 	text-align: center;
-	padding: 0.5em;
+	padding: 0.5em 0;
+	margin: 0;
 }
 input[type=text] {
 	width: 8.5em;
@@ -416,4 +417,48 @@ a:hover{
 }
 .page-link{
 	color: black;
+}
+.navbar-small{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 100%;
+}
+.menu-btn{
+	border: 2px solid #ccc;
+	border-radius: 4px;
+	background-color: white;
+}
+@media (max-width: 767px){
+	.page-header-navbar{
+		display: none;
+	}
+	.page-header-navbar-2{
+		display: block;
+	}
+	.social-list{
+		padding-left: 7em
+	}
+	.page-header-logo h1{
+		padding: 1.5em 0;
+	}
+}
+@media (min-width: 768px) and (max-width: 992px){
+	.page-header-navbar{
+		display: none;
+	}
+	.page-header-navbar-2{
+		display: block;
+	}
+	.social-list{
+		padding-left: 12em;
+	}
+	.page-header-logo h1{
+		padding: 1.5em 0;
+	}
+}
+@media (min-width: 993px){
+	.page-header-navbar-2{
+		display: none;
+	}
 }
