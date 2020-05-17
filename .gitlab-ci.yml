@@ -2,8 +2,7 @@ image: docker:18.09.7
 services:
   - docker:18.09.7-dind
 
-varibles:
-  DOCKER_HOST=tcp://localhost:2375
+
 stages:
   - build
   - test
@@ -13,6 +12,7 @@ before_script:
   # - apk add --update py-pip &&
   #     pip install docker-compose
   - docker login -u nvTran -p HzBxTohgcRYXBcs7tPno registry.gitlab.com
+
 
 
 
@@ -37,3 +37,5 @@ staging:
   stage: deploy
   script:
     - docker run -p 8000:8000 -i -t gitlab.com/dangvu1986/dvblog:latest
+variables:
+  DOCKER_HOST: tcp://docker:2375
