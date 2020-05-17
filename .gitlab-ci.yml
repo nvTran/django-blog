@@ -36,6 +36,7 @@ build:
 staging:
   stage: deploy
   script:
+    - docker pull registry.gitlab.com/dangvu1986/dvblog:latest
     - docker run -p 8000:8000 -i  gitlab.com/dangvu1986/dvblog:latest
 variables:
   DOCKER_HOST: tcp://docker:2375
