@@ -18,13 +18,13 @@ a:hover{
 	display: none;
 	position: absolute;
 	background-color: #f1f1f1;
-	min-width: 160px;
+	min-width: 10em;
 	box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
 	z-index: 1;
 }
 .dropdown-content a {
 	color: black;
-	padding: 12px 16px;
+	padding: 0.7em 1em;
 	text-decoration: none;
 	display: block;
 }
@@ -41,16 +41,16 @@ a:hover{
 	padding: 0.5em;
 }
 input[type=text] {
-	width: 130px;
+	width: 8.5em;
 	box-sizing: border-box;
 	border: 2px solid #ccc;
 	border-radius: 4px;
-	font-size: 16px;
+	font-size: 1em;
 	background-color: white;
  	/*background-image: url('searchicon.png');
 	background-position: 10px 10px; 
  	background-repeat: no-repeat;*/
- 	padding: 12px 20px 12px 40px;
+ 	padding: 0.5em 1em 0.5em 2em;
  	-webkit-transition: width 0.4s ease-in-out;
  	transition: width 0.4s ease-in-out;
 }
@@ -73,13 +73,10 @@ input[type=text]:focus {
 .article-wrapper{
 	width: 100%;
 }
-.article-group-2__item{
-	margin-bottom: 55px;
-}
 .article-img{
 	width: 100%;
 	height: 15em;
-	margin-bottom: 22px;
+	margin-bottom: 1em;
 }
 .article-img:nth-child(3){
 	width: 100%;
@@ -94,7 +91,7 @@ input[type=text]:focus {
 }
 .article-time{
 	margin-top: 0;
-	margin-bottom: 12px;
+	margin-bottom: 1em;
 }
 .article-time p{
 	display: inline-block;
@@ -102,7 +99,7 @@ input[type=text]:focus {
 	font-size: small;
 }
 .article-time p:not(:last-child){
-	margin-right: 30px;
+	margin-right: 2.5em;
 }
 .article-time p i{
 	padding-right: 5px;
@@ -110,7 +107,7 @@ input[type=text]:focus {
 .article-content h2{
 	font-weight: 700;
 	font-size: larger;
-	margin-bottom: 10px;
+	margin-bottom: 1em;
 	line-height: 1.3;
 }
 .section-footer{
@@ -157,6 +154,7 @@ li::marker{
 .gotop p{
 	transform: rotate(-90deg);
 	text-transform: capitalize;
+	cursor: pointer;
 }
 .copyright-wrapper{
 	background-color: #f2f1f2;
@@ -168,29 +166,29 @@ li::marker{
 	padding: 0.5em;
 }
 .widget:not(:last-child){
-	margin-bottom: 30px;
+	margin-bottom: 2.5em;
 }
 .widget{
 	box-shadow: 0.707px 0.707px 7px 0px rgba(0, 0, 0, 0.1);
-	padding: 50px 30px;
+	padding: 3em 1em;
 	background-color: #FFFFFF;
 	-webkit-border-radius: 10px;
 	border-radius: 10px;
 }
 .widget-header{
-	margin-bottom: 40px;
+	margin-bottom: 2em;
 }
 .widget-title{
 	margin-bottom: 0;
 	text-align: center;
 }
 .widget-profile-img{
-	margin-bottom: 25px;
+	margin-bottom: 1.5em;
 	text-align: center;
 }
 .widget-profile-img img{
-	width: 120px;
-	height: 120px;
+	width: 7em;
+	height: 7em;
 	border-radius: 50%;
 }
 .designation{
@@ -203,7 +201,7 @@ li::marker{
 }
 .social-info ul{
 	display: inline-block;
-	margin-right: 30px;
+	margin-right: 1.5em;
 	list-style: none;
 }
 .social-list li{
@@ -213,7 +211,7 @@ li::marker{
 	display: inline-block;
 }
 .social-list li:not(:last-child){
-	margin-right: 18px;
+	margin-right: 1em;
 }
 .email{
 	font-size: smaller;
@@ -232,11 +230,11 @@ li::marker{
     transition: all 0.4s ease;
 }
 .widget-post:not(:last-child){
-	margin-bottom: 15px;
-	padding-bottom: 15px;
+	margin-bottom: 1em;
+	padding-bottom: 1em;
 }
 .post-thumbnail{
-	margin-right: 20px;
+	margin-right: 1.5em;
 	max-width: 25%;
 	width: 5em;
 	height: 4.5em;
@@ -266,17 +264,17 @@ li::marker{
 .category-list li{
 	text-align: center;
 	border-bottom: 1px dashed #dee2e6;
-	margin-bottom: 10px;
-	padding-bottom: 10px;
+	margin-bottom: 0.8em;
+	padding-bottom: 0.8em;
 }
 .tag-cloud-link{
-	height: 40px;
-	line-height: 40px;
+	height: 3.5em;
+	line-height: 3.5em;
 	text-align: center;
 	border: 1px solid #f0f0f0;
 	display: inline-block;
 	color: #666666;
-	padding: 0 20px;
+	padding: 0 2em;
 	font-size: 0.7647058824rem !important;
 	margin-right: 1px;
 	margin-bottom: 5px;
@@ -294,24 +292,23 @@ li::marker{
 	margin-top: 0;
 }
 .post{
-	margin-bottom: 50px;
+	margin-bottom: 2em;
 }
 .entry-header{
 	margin: 1.5em auto;
-	margin-bottom: 40px;
 }
 .entry-header h2{
 	font-weight: 700;
 	font-size: 2.11em;
 	letter-spacing: -.2px;
-	margin-bottom: 20px;
-	line-height: 36px;
+	margin-bottom: 0.5em;
+	line-height: 1em;
 }
 .post-meta{
 	margin-bottom: 0;
 }
 .post-meta span:not(:last-child) {
-    margin-right: 30px;
+    margin-right: 2em;
 }
 .post-meta span {
     display: inline-block;
@@ -324,11 +321,11 @@ li::marker{
 }
 .blog-img{
 	text-align: center;
-	padding: 30px 0;
+	padding: 1.5em 0;
 }
 .blog-img img{
-	width: 800px;
-	height: 600px;
+	width: 50em;
+	height: 37em;
 }
 .entry-content{
 	margin: 1.5em 0 0;
@@ -351,7 +348,7 @@ li::marker{
 }
 .navigation-title .title{
 	font-size: 1.5em;
-	padding: 0 15px;
+	padding: 0 1em;
 	color: #000000;
 	font-weight: 500;
 	margin: 0;
