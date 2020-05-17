@@ -15,7 +15,7 @@ class PostCountHitDetailView(HitCountDetailView):
 
 def article_list(request):
     articles = Article.objects.all().order_by("date")
-    paginator = Paginator(articles, 10)
+    paginator = Paginator(articles, 3)
     page = request.GET.get('page')
     try:
         articles = paginator.page(page)
@@ -33,7 +33,7 @@ def article_list(request):
 def tag_view(request, tag):
     articles = Article.objects.filter(tags__name__in = [str(tag)])
     print(articles)
-    paginator = Paginator(articles, 10)
+    paginator = Paginator(articles, 3)
     page = request.GET.get('page')
     try:
         articles = paginator.page(page)
@@ -69,14 +69,24 @@ def category_detail(request, slug):
     selected_category = Category.objects.get(slug = slug)
     category_title = selected_category.title
     articles = Article.objects.filter(category__slug__exact = slug)
+    paginator = Paginator(articles, 3)
+    page = request.GET.get('page')
+    try:
+        articles = paginator.page(page)
+    except PageNotAnInteger:
+            # If page is not an integer deliver the first page
+        articles = paginator.page(1)
+    except EmptyPage:
+        # If page is out of range deliver last page of results
+        articles = paginator.page(paginator.num_pages)
 
-    return render(request, 'articles/category_detail.html', {'category': selected_category.title, 'articles': articles}) 
+    return render(request, 'articles/category_detail.html', {'category': selected_category.title, 'articles': articles, 'page': page}) 
 
 def homepage(request):
     articles = Article.objects.all().order_by("-date")
     tags = Tag.objects.all()
     categories = Category.objects.all()
-    paginator = Paginator(articles, 10)
+    paginator = Paginator(articles, 3)
     page = request.GET.get('page')
     try:
         articles = paginator.page(page)

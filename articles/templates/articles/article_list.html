@@ -14,8 +14,7 @@
 				</div>
 			{% endfor %}
 		</div>
-	</section>
-{% if articles.has_other_pages %}
+		{% if articles.has_other_pages %}
   <nav aria-label="Page navigation conatiner"></nav>
   <ul class="pagination justify-content-center">
     {% if articles.has_previous %}
@@ -26,6 +25,7 @@
    {% endif %}
   </ul>
   </nav>
-</div>
 {% endif %}
+	</section>
+
 {% endblock%}

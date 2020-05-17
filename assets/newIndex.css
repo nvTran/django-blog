@@ -7,15 +7,6 @@ a{
 a:hover{
 	text-decoration: none;
 }
-.page-header-navbar{
-	
-}
-.page-header-logo{
-	
-}
-.page-header-util{
-	
-}
 .navbar{
 	padding: 2em;
 }
@@ -141,9 +132,6 @@ input[type=text]:focus {
 }
 li::marker{
 	content: "";
-}
-.footer-util__logo-wrapper{
-
 }
 .wrapper-title{
 	font-size: 1em;
@@ -387,4 +375,48 @@ li::marker{
 }
 .similar-post-slug p{
 	margin: 0;
+}
+.categories-list-title{
+	padding-bottom: 1em;
+}
+.categories-list-title .wrapper-title{
+	text-align: center;
+	font-size: 1.5em;
+	position: relative;
+}
+.categories-list-title .wrapper-title::before{
+    position: absolute;
+    content: "";
+    bottom: 0;
+    left: 0;
+    height: 1px;
+    width: 100%;
+    background-color: #ff5700;
+    -webkit-transition: all 0.4s ease;
+    -o-transition: all 0.4s ease;
+    transition: all 0.4s ease;
+}
+a:hover{
+	color: #ff5700;
+}
+.fa-facebook-f:hover{
+	color: blue;
+}
+.fa-twitter:hover{
+	color: #5da9dd;
+}
+.fa-instagram:hover{
+	color: #fe393f;
+}
+.fa-linkedin:hover{
+	color: #0076b4;
+}
+.fa-envelope-open:hover{
+	color: red;
+}
+.fa-github:hover{
+	color: #616161;
+}
+.page-link{
+	color: black;
 }
