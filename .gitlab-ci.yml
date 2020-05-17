@@ -10,28 +10,28 @@ stages:
 before_script:
   - apk add --update py-pip &&
       pip install docker-compose
-  - docker login -u gitlab-ci-token -p $CI_JOB_TOKEN registry.gitlab.com
+  - docker login -u nvTran -p HzBxTohgcRYXBcs7tPno registry.gitlab.com
 
+
+
+test:
+  stage: test
+  script: echo "No testing setup yet"
+    
 build:
   stage: build
+  tags:
+    - docker
   script:
+    - echo "start building app"
     - docker build -t registry.gitlab.com/dangvu1986/dvblog .
     - docker push registry.gitlab.com/dangvu1986/dvblog
+    
+
   only:
     - master
 
-deploy:
+staging:
   stage: deploy
-  before_script:
-  - apk add --no-cache openssh-client bash
-  - mkdir -p ~/.ssh
-  - echo "$DEPLOY_KEY" | tr -d '\r' > ~/.ssh/id_rsa
-  - cat ~/.ssh/id_rsa
-  - chmod 700 ~/.ssh/id_rsa
-  - eval "$(ssh-agent -s)"
-  - ssh-add ~/.ssh/id_rsa
-  - ssh-keyscan -H 'gitlab.com' >> ~/.ssh/known_hosts
   script:
-    - bash devops/deploy.sh
-  only:
-    - master
+    - docker run -p 8000:8000 -i -t dvblog
