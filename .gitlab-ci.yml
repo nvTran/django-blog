@@ -1,6 +1,6 @@
 image: docker:18.09.7
-# services:
-#   - docker:18.09.7-dind
+services:
+  - docker:18.09.7
 
 
 stages:
@@ -38,6 +38,6 @@ staging:
   script:
     - docker pull registry.gitlab.com/dangvu1986/dvblog:latest
     - docker build -t registry.gitlab.com/dangvu1986/dvblog .
-    - docker run -p 8000:8000 -i  gitlab.com/dangvu1986/dvblog:latest
+    - docker run -p 8000:8000 -i  registry.gitlab.com/dangvu1986/dvblog:latest
 # variables:
 #   DOCKER_HOST: tcp://docker:2375
