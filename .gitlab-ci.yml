@@ -34,7 +34,7 @@ staging:
     # - docker run -p 8000:8000 -i  registry.gitlab.com/dangvu1986/dvblog:latest
 # variables:
 #   DOCKER_HOST: tcp://docker:2375
-      - sudo pip3 uninstall Django
+      # - sudo pip3 uninstall Django
       - git pull git@gitlab.com:dangvu1986/dvblog.git
       - pip3 install -r requirements.txt
       - pip3 install git+https://github.com/django-haystack/django-haystack.git#egg=django-haystack
