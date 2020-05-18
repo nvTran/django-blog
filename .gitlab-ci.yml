@@ -35,10 +35,11 @@ staging:
 # variables:
 #   DOCKER_HOST: tcp://docker:2375
       # - sudo pip3 uninstall Django
-      - pip3 install Django==2.2.12
+      
       - git pull git@gitlab.com:dangvu1986/dvblog.git
       - pip3 install -r requirements.txt
       - pip3 install git+https://github.com/django-haystack/django-haystack.git#egg=django-haystack
+      - pip3 install Django==2.2.12
 
       # - python3 manage.py migrate
       - gunicorn blog_web_app.wsgi:application --bind 0.0.0.0:8000 --workers 3
