@@ -36,6 +36,8 @@ staging:
 #   DOCKER_HOST: tcp://docker:2375
       - git pull git@gitlab.com:dangvu1986/dvblog.git
       - pip3 install -r requirements.txt
+      - pip3 install git+https://github.com/django-haystack/django-haystack.git#egg=django-haystack
+
       # - python3 manage.py migrate
       - gunicorn blog_web_app.wsgi:application --bind 0.0.0.0:8000 --workers 3
 
