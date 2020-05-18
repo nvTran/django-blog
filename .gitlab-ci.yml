@@ -7,7 +7,7 @@ before_script:
   # - apk add --update py-pip &&
   #     pip install docker-compose
   # - docker login -u nvTran -p HzBxTohgcRYXBcs7tPno registry.gitlab.com
-  - cd dvblog
+  - cd /home/truongannt97/dvblog
 
 
 
