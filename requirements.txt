@@ -13,4 +13,3 @@ Pillow==7.1.2
 protobuf==3.11.2
 requests==2.22.0
 gunicorn==19.6.0
-docker-compose==3.7
