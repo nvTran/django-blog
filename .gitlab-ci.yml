@@ -40,7 +40,7 @@ staging:
       
     - cd /home/truongannt97/dvblog
     - sudo systemctl stop gunicorn
-    - sudo git pull git@gitlab.com:dangvu1986/dvblog.git
+    - git pull git@gitlab.com:dangvu1986/dvblog.git
 
     - sudo systemctl start gunicorn
     - sudo systemctl enable gunicorn
