@@ -25,6 +25,8 @@ test:
 
 #   only:
 #     - master
+variables:
+  TARGET_DIR: /home/truongannt97/dvblog
 
 staging:
   stage: deploy
