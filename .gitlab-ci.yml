@@ -35,11 +35,10 @@ staging:
 # variables:
 #   DOCKER_HOST: tcp://docker:2375
       # - sudo pip3 uninstall Django
-      - sudo systemctl stop gunicorn
-      - 
-      - git pull git@gitlab.com:dangvu1986/dvblog.git
+    - sudo systemctl stop gunicorn
+    - git pull git@gitlab.com:dangvu1986/dvblog.git
 
-      - sudo systemctl start gunicorn
-      - sudo systemctl enable gunicorn
+    - sudo systemctl start gunicorn
+    - sudo systemctl enable gunicorn
       
 
