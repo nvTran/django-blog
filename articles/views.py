@@ -6,11 +6,6 @@ from django.http import HttpResponse
 from django.core.paginator import Paginator, PageNotAnInteger, EmptyPage
 from taggit.models import Tag
 
-from hitcount.views import HitCountDetailView
-
-class PostCountHitDetailView(HitCountDetailView):
-    model = Article        # your model goes here
-    count_hit = True    # set to True if you want it to try and count the hit
 
 
 def article_list(request):
@@ -58,6 +53,10 @@ def article_details(request, slug):
     tags = article.tags.all()
     related_articles = Article.simiar(article)
 
+    article.views=article.views+1
+    article.save()
+
+
     return render(request,'articles/article_detail.html', {'article': article, 'tags': tags, 'related_articles': related_articles})
 
 def category_list(request):
@@ -96,8 +95,7 @@ def homepage(request):
     except EmptyPage:
         # If page is out of range deliver last page of results
         articles = paginator.page(paginator.num_pages)
+    top_articles = Article.objects.all().order_by("-views")
+    
 
-    top_articles = Article.objects.order_by("-hit_count_generic__hits")
-
-
-    return render(request, "articles/homepage.html", {'page': page,'articles': articles, 'tags': tags, 'categories': categories, 'top_articles': top_articles[0:5]})
+    return render(request, "articles/homepage.html", {'page': page,'articles': articles, 'tags': tags, 'categories': categories, 'top_articles': top_articles[0:3]})

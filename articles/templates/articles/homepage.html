@@ -21,7 +21,7 @@
 									</div>
 									<div class="article-content">
 										<h2><a href="/articles/{{article.slug }}">{{article.title}}</a></h2>
-										<p>{{ article.snippet}}</p>
+										<p>{{ article.snippet | safe }}</p>
 									</div>
 								</div>
 							</div>
@@ -81,9 +81,7 @@
 								<h2 class="widget-title">Popular posts</h2>
 							</div>
 							<div class="widget-posts">
-								<!-- {% load hitcount_tags %} -->
 								{% for article in top_articles %}
-								<!-- {% get_hit_count for article %} -->
 								
 								<div class="widget-post media">
 									<div class="post-thumbnail">

@@ -42,7 +42,6 @@ INSTALLED_APPS = [
     'taggit',
     'django_summernote',
     'elasticsearch',
-    'hitcount',
     
 ]
 
@@ -82,8 +81,12 @@ WSGI_APPLICATION = 'blog_web_app.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'postgres',
+        'USER': 'truongannt97',
+        'PASSWORD': 'andylongman2905',
+        'HOST': 'annguyennt-database.cem88rhcnzu5.ap-southeast-1.rds.amazonaws.com',
+        'PORT': '5432',
     }
 }
 
@@ -142,5 +145,6 @@ HAYSTACK_CONNECTIONS = {
     },
 }
 
+X_FRAME_OPTIONS = 'SAMEORIGIN'
 
 
